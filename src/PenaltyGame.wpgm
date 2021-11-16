@@ -1,0 +1,9 @@
+import modelos.*
+import penaltyGameUI.*
+import wollok.game.*
+
+program PenaltyGame {
+	penaltyGameUI.configuracionInicial()
+	penaltyGameUI.iniciarEscenario()
+	game.start()
+}

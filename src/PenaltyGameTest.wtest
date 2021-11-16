@@ -1,0 +1,39 @@
+import modelos.*
+import penaltyGameUI.*
+
+describe "test para penalty game" {
+
+	test "La computadora elige un lado y luego el otro lado" {
+		ladoALado.lado(1)
+		ladoALado.ladoSiguiente(5)
+		assert.equals(5, ladoALado.elegirLado())
+		assert.equals(1, ladoALado.elegirLado())
+	}
+
+	test "La computadora elige un lado, luego el mismo lado y luego el centro" {
+		ladoYCentro.lado(1)
+		assert.equals(1, ladoYCentro.elegirLado())
+		assert.equals(1, ladoYCentro.elegirLado())
+	}
+
+	test "La computadora elige un lado, y luego siempre al mismo lugar" {
+		mismoLado.lado(1)
+		assert.equals(1, mismoLado.elegirLado())
+	}
+
+	test "El arquero devuelve mensaje despues del disparo" {
+		assert.equals("No atajaste", arquero.devolverMensajeDisparo(true))
+	}
+
+	test "La pelota devuelve mensaje despues del disparo" {
+		assert.equals("Gol!!!!!!!!!!", pelota.devolverMensajeDisparo(true))
+	}
+
+	test "La ronda devuelve si el usuario puede festejar el gol" {
+		ronda.ladoUsuario(3)
+		ronda.ladoComputadora(4)
+		assert.equals("gol.wav", ronda.festejar())
+	}
+
+}
+
